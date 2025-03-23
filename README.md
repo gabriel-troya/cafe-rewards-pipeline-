@@ -24,7 +24,7 @@ This project implements a data processing pipeline for analyzing the Café Rewar
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/cafe-rewards-pipeline.git
+git clone https://github.com/gabriel-troya/cafe-rewards-pipeline.git
 cd cafe-rewards-pipeline
 
 # Install dependencies
