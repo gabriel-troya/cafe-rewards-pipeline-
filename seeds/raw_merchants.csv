@@ -1,0 +1,11 @@
+merchant_id,name,category,country
+MER001,Merchant 1,electronics,DE
+MER002,Merchant 2,fashion,US
+MER003,Merchant 3,fashion,MX
+MER004,Merchant 4,utilities,DE
+MER005,Merchant 5,dining,MX
+MER006,Merchant 6,dining,DE
+MER007,Merchant 7,travel,US
+MER008,Merchant 8,electronics,GB
+MER009,Merchant 9,travel,CA
+MER010,Merchant 10,electronics,MX
