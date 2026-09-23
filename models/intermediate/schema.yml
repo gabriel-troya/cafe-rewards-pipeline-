@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_transactions_quarantined
+    description: "Transacciones sin amount<=0 ni merchant_id nulo."
+
+  - name: int_transactions_deduped
+    description: "Igual que arriba, sin transaction_id duplicados (se conserva la fecha más antigua)."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+
+  - name: int_transactions_enriched
+    description: "Deduped + category/country del merchant + exceeds_daily_limit. Equivalente a build_silver_transactions()."
+    columns:
+      - name: merchant_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
