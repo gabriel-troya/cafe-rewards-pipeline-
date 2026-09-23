@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: fct_transactions
+    description: "Tabla Silver final: transacciones limpias, deduplicadas y enriquecidas."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: currency
+        tests:
+          - accepted_values:
+              values: ['USD', 'EUR', 'GBP', 'CAD', 'MXN']
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['approved', 'declined']
+
+  - name: rpt_top_merchants
+    description: "Top 5 merchants por volumen de transacciones aprobadas/pendientes."
+
+  - name: rpt_monthly_trends
+    description: "Conteo y monto mensual, con columna de mes anterior (LAG)."
+
+  - name: rpt_decline_rate_by_category
+    description: "Tasa de declinación por categoría de merchant, rankeada."
+
+  - name: rpt_category_spend
+    description: "Gasto total y conteo por categoría, solo transacciones aprobadas."
