@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Transacciones tipificadas, sin ninguna regla de negocio aplicada aún (equivalente a Bronze)."
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
+      # Nota: a propósito NO validamos accepted_values de currency aquí.
+      # Staging = Bronze: solo tipifica. La fila con moneda 'XYZ' del seed
+      # debe seguir existiendo en esta capa sin filtrar -- la regla de negocio
+      # se valida más abajo, en fct_transactions (ver models/marts/schema.yml).
+
+  - name: stg_merchants
+    columns:
+      - name: merchant_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_accounts
+    columns:
+      - name: account_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_limits
+    columns:
+      - name: limit_type
+        tests:
+          - accepted_values:
+              values: ['daily', 'monthly']
