@@ -31,4 +31,5 @@ models:
       - name: limit_type
         tests:
           - accepted_values:
-              values: ['daily', 'monthly']
+              arguments:
+                values: ['daily', 'monthly']

@@ -11,11 +11,13 @@ models:
       - name: currency
         tests:
           - accepted_values:
-              values: ['USD', 'EUR', 'GBP', 'CAD', 'MXN']
+              arguments:
+                values: ['USD', 'EUR', 'GBP', 'CAD', 'MXN']
       - name: status
         tests:
           - accepted_values:
-              values: ['approved', 'declined']
+              arguments:
+                values: ['approved', 'declined']
 
   - name: rpt_top_merchants
     description: "Top 5 merchants por volumen de transacciones aprobadas/pendientes."
